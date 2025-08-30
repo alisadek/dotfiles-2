@@ -8,7 +8,7 @@ config.font_size = 16
 config.line_height = 1.4
 config.font = wezterm.font_with_fallback {
   {
-    family = 'Dank Mono',
+    family = 'Fira Code Nerd Font',
     harfbuzz_features = {
       'calt',
       'ss01',
@@ -23,19 +23,49 @@ config.font = wezterm.font_with_fallback {
       'liga',
     },
   },
-  { family = 'Symbols Nerd Font Mono' },
+  { family = 'JetBrains Mono Nerd Font' },
 }
 config.font_rules = {
   {
-    font = wezterm.font('Dank Mono', {
+    font = wezterm.font('JetBrains Mono Nerd Font', {
       bold = true,
     }),
   },
   {
     italic = true,
-    font = wezterm.font('Dank Mono', {
+    font = wezterm.font('JetBrains Mono Nerd Font', {
       italic = true,
     }),
+  },
+}
+
+-- Keys
+config.keys = {
+  {
+    key = 'LeftArrow',
+    mods = 'OPT',
+    action = wezterm.action.SendString '\x1bb',
+  },
+  {
+    key = 'RightArrow',
+    mods = 'OPT',
+    action = wezterm.action.SendString '\x1bf',
+  },
+  {
+    key = 'Backspace',
+    mods = 'CMD',
+    action = wezterm.action.SendString '\x15',
+  },
+  {
+    key = 'LeftArrow',
+    mods = 'CMD',
+    action = wezterm.action.SendString '\x01', -- Ctrl+A
+  },
+  -- Command + Right Arrow: Move cursor to end of line
+  {
+    key = 'RightArrow',
+    mods = 'CMD',
+    action = wezterm.action.SendString '\x05', -- Ctrl+E
   },
 }
 
